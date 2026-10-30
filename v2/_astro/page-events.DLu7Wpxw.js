@@ -1,0 +1,1 @@
+import{r as e}from"./Base.astro_astro_type_script_index_0_lang.Cgd-rWP2.js";var t=document.body.dataset.serviceSlug;t&&e(`service_view`,{service:t,name:document.body.dataset.serviceName||t}),document.body.dataset.page===`plans`&&e(`pricing_view`,{page:`/plans`});var n=document.body.dataset.caseSlug;n&&e(`case_study_open`,{slug:n});
