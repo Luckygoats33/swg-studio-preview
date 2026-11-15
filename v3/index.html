@@ -217,6 +217,11 @@
             <source type="image/avif" srcset="assets/system-800.avif 800w, assets/system-1280.avif 1280w" sizes="(min-width: 900px) 72rem, 100vw" />
             <img src="assets/system-1280.webp" alt="Chrome objects on a ribbon: a stack of pages, a megaphone, a website, a red break, gears, and a rising chart." width="1280" height="720" loading="lazy" decoding="async" />
           </picture>
+          <svg class="flow" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+            <path class="flow-line" pathLength="1" d="M6 24 C18 30 28 16 40 22 S58 32 68 20 90 12 96 18" fill="none" stroke="#e8e8e8" stroke-width="0.7" stroke-linecap="round" />
+            <path class="repair-line" pathLength="1" d="M50 25 L66 21" fill="none" stroke="#f2f2f2" stroke-width="1.4" stroke-linecap="round" />
+          </svg>
+          <span class="break-pulse" aria-hidden="true"></span>
           <div class="hots">
             <button type="button" class="hot station" data-station="content" data-node="content" style="--l: 3%; --t: 30%; --w: 16%; --h: 38%" aria-expanded="false" aria-controls="panel-content">Content</button>
             <button type="button" class="hot station" data-station="ads" data-node="ads" style="--l: 24%; --t: 28%; --w: 15%; --h: 40%" aria-expanded="false" aria-controls="panel-ads">Ads</button>
@@ -263,6 +268,7 @@
           </article>
         </div>
         <p class="help">Choose a part of the chain. Arrow keys move across it.</p>
+        <p class="fix-row"><button type="button" class="button" id="fix-chain" aria-pressed="false">Fix the break</button></p>
       </section>
 
       <section class="band reveal world-orb" id="symptoms" data-glow="steel" aria-labelledby="symptom-title">
@@ -405,6 +411,7 @@
           <ol class="services">
             <li id="web-design">
               <article>
+                <img class="svc-visual tint-blue" src="assets/pillar-strategize-480.webp" alt="" width="480" height="744" loading="lazy" decoding="async" />
                 <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="9" y="11" width="30" height="24" rx="1.5" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><path d="M9 18h30" fill="none" stroke="url(#iconMetal)" stroke-width="2"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">01</span>
                 <span><h3>Web Design &amp; Development</h3><small>The public instrument. A website that finally says what the business has become.</small></span>
@@ -412,6 +419,7 @@
             </li>
             <li id="growth-marketing">
               <article>
+                <img class="svc-visual tint-amber" src="assets/pillar-grow-480.webp" alt="" width="480" height="680" loading="lazy" decoding="async" />
                 <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 30l6-4V18l16-7v22L18 26" fill="none" stroke="url(#iconMetal)" stroke-width="2" stroke-linejoin="round"/><path d="M14 31c1 4 3 7 6 8" fill="none" stroke="url(#iconMetal)" stroke-width="2" stroke-linecap="round"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">02</span>
                 <span><h3>Growth Marketing</h3><small>The path from spend to the page. Paid attention is a leak until the path can hold it.</small></span>
@@ -419,6 +427,7 @@
             </li>
             <li id="ai-automation">
               <article>
+                <img class="svc-visual tint-violet" src="assets/pillar-workshop-480.webp" alt="" width="480" height="744" loading="lazy" decoding="async" />
                 <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="14" cy="32" r="3.2" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><circle cx="24" cy="14" r="3.2" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><circle cx="34" cy="30" r="3.2" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><path d="M16.5 29.5 21.5 17M26.5 17 31.5 27.5M17 32h14" fill="none" stroke="url(#iconMetal)" stroke-width="2"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">03</span>
                 <span><h3>AI &amp; Automation</h3><small>The handoff, with an owner. If the team is the integration, the system is not finished.</small></span>
@@ -426,6 +435,7 @@
             </li>
             <li id="conversion-analytics">
               <article>
+                <img class="svc-visual tint-cyan" src="assets/system-800.webp" alt="" width="800" height="450" loading="lazy" decoding="async" />
                 <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 34V22M22 34V14M32 34V18" fill="none" stroke="url(#iconMetal)" stroke-width="3" stroke-linecap="round"/><path d="M10 36h28" fill="none" stroke="url(#iconMetal)" stroke-width="2"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">04</span>
                 <span><h3>Conversion &amp; Analytics</h3><small>The reading. If you cannot read the handoff, you cannot tell which fix worked.</small></span>
@@ -534,6 +544,15 @@
           <div class="start-grid">
             <fieldset class="scrubber">
               <legend class="sr">Symptoms</legend>
+              <div class="stepper" hidden>
+                <p class="eyebrow" data-step-count>Break 1 of 7</p>
+                <div class="actions">
+                  <button type="button" class="button" data-step-yes>This is us</button>
+                  <button type="button" class="button button-quiet" data-step-no>Not this</button>
+                  <button type="button" class="button button-quiet" data-step-prev>Back</button>
+                  <button type="button" class="button button-quiet" data-step-all>Show every symptom</button>
+                </div>
+              </div>
               <label class="check"><input type="checkbox" name="symptoms" value="traffic-no-leads" data-plan="growth" data-services="web-design conversion-analytics" data-stress="ads-website website-crm" data-reason="Attention is landing on a page or a form that does not convert it into a request with an owner. Fix the page and measure the drop before you buy more traffic." /><span><strong>Traffic but no leads</strong><small>People arrive. The next step does not hold them.</small></span></label>
               <label class="check"><input type="checkbox" name="symptoms" value="site-dated" data-plan="foundation" data-services="web-design" data-stress="content-website" data-reason="The site is behind the business. Start by rebuilding the public instrument so the offer is sayable and the next step is obvious." /><span><strong>Site looks dated</strong><small>The public site no longer matches the company.</small></span></label>
               <label class="check"><input type="checkbox" name="symptoms" value="unclear-offer" data-plan="foundation" data-services="web-design growth-marketing" data-stress="content-website content-ads" data-reason="If the offer is unclear, ads and pages will invent one. Clarify the claim before you scale spend." /><span><strong>Nobody knows what we do</strong><small>A buyer cannot repeat the offer after the page.</small></span></label>
