@@ -78,13 +78,15 @@
       }
     </script>
     <link rel="preload" href="assets/swg-logo.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/avif" href="assets/hero-1280.avif" imagesrcset="assets/hero-800.avif 800w, assets/hero-1280.avif 1280w" imagesizes="100vw" fetchpriority="high" />
     <link rel="preload" href="fonts/unbounded-500.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/site.css" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
-    <div class="cursor" aria-hidden="true"></div>
+    <div class="loader" aria-hidden="true"><img src="assets/dot-64.webp" alt="" width="64" height="64" /></div>
+    <div class="cursor" aria-hidden="true"><img src="assets/dot-64.webp" alt="" width="64" height="64" /></div>
     <div class="rail" aria-hidden="true"><span class="rail-dot"></span></div>
     <header class="site-header">
       <a class="brand" href="./">
@@ -110,7 +112,12 @@
     </header>
     <main id="main">
       <section class="hero" aria-labelledby="home-title">
-        <div class="wrap">
+        <picture class="hero-media">
+          <source type="image/avif" srcset="assets/hero-800.avif 800w, assets/hero-1280.avif 1280w" sizes="100vw" />
+          <img src="assets/hero-1280.webp" srcset="assets/hero-800.webp 800w, assets/hero-1280.webp 1280w" sizes="100vw" alt="" width="1280" height="720" fetchpriority="high" decoding="async" />
+        </picture>
+        <span class="hero-sweep" aria-hidden="true"></span>
+        <div class="wrap hero-copy">
           <p class="eyebrow">SWG Studio · Working digital systems lab</p>
           <div class="hero-logo">
             <div class="mark">
@@ -118,209 +125,129 @@
               <span class="sheen" aria-hidden="true"></span>
             </div>
           </div>
-          <div class="hero-grid">
-            <div>
-              <h1 id="home-title"><span class="line"><span class="swg">S</span>trategize it.</span><span class="line"><span class="swg">W</span>orkshop it.</span><span class="line"><span class="swg">G</span>row it.</span></h1>
-              <p class="positioning">Strategy, workshops, and growth across the whole business.</p>
-              <p class="lede" style="margin-top: 1rem">We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems.</p>
-              <div class="actions">
-                <a class="button" href="#start">Start with the symptom</a>
-                <a class="button button-quiet" href="#map">See the line</a>
+          <h1 id="home-title"><span class="line"><span class="swg">S</span>trategize it.</span><span class="line"><span class="swg">W</span>orkshop it.</span><span class="line"><span class="swg">G</span>row it.</span></h1>
+          <p class="positioning">Strategy, workshops, and growth across the whole business.</p>
+          <p class="lede">We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems.</p>
+          <div class="actions">
+            <a class="button" href="#start">Start with the symptom</a>
+            <a class="button button-quiet" href="#map">See the chain</a>
+          </div>
+          <p class="sync">Integrated. Synchronized. Resilient.</p>
+        </div>
+      </section>
+
+      <svg class="thread" viewBox="0 0 80 1000" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="threadG" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="80" y2="0">
+            <stop offset="0" stop-color="#6a6a6a" />
+            <stop offset="0.42" stop-color="#ffffff" />
+            <stop offset="0.58" stop-color="#cfcfcf" />
+            <stop offset="1" stop-color="#5a5a5a" />
+          </linearGradient>
+        </defs>
+        <path class="thread-path" pathLength="1" fill="none" stroke="url(#threadG)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" d="M42 0 L42 70 L16 102 L42 134 L42 250 L66 286 L42 322 L42 470 L14 512 L42 554 L42 720 L68 762 L42 804 L42 1000" />
+      </svg>
+
+      <section class="band" id="pillars" aria-labelledby="pillars-title">
+        <div class="wrap">
+          <p class="eyebrow">The work</p>
+          <h2 id="pillars-title">Three moves.</h2>
+          <p class="measure">Strategy, the workshop that builds the system, and the growth that follows. Not a slogan, and not a tool list.</p>
+          <div class="pillar-grid">
+            <article class="pillar">
+              <div class="pillar-frame">
+                <picture>
+                  <source type="image/avif" srcset="assets/pillar-strategize-480.avif 480w, assets/pillar-strategize-720.avif 720w" sizes="(min-width: 900px) 30vw, 90vw" />
+                  <img src="assets/pillar-strategize-720.webp" alt="A brushed chrome compass." width="720" height="1120" loading="lazy" decoding="async" />
+                </picture>
+                <span class="pillar-sheen" aria-hidden="true"></span>
               </div>
-              <p class="sync">Integrated. Synchronized. Resilient.</p>
-            </div>
-            <figure class="metal" aria-hidden="true">
-              <div class="metal-frame">
-                <img src="assets/metal.webp" alt="" width="1200" height="540" decoding="async" fetchpriority="low" />
-                <canvas id="metal-canvas" width="720" height="324"></canvas>
+              <h3>Strategize</h3>
+              <p>The claim, the offer, and the plan, before a new campaign or a new tool.</p>
+            </article>
+            <article class="pillar">
+              <div class="pillar-frame">
+                <picture>
+                  <source type="image/avif" srcset="assets/pillar-workshop-480.avif 480w, assets/pillar-workshop-720.avif 720w" sizes="(min-width: 900px) 30vw, 90vw" />
+                  <img src="assets/pillar-workshop-720.webp" alt="Brushed chrome gears and a wrench." width="720" height="1120" loading="lazy" decoding="async" />
+                </picture>
+                <span class="pillar-sheen" aria-hidden="true"></span>
               </div>
-              <figcaption><span>Liquid metal</span><span data-metal-state>Poster</span></figcaption>
-            </figure>
+              <h3>Workshop</h3>
+              <p>The site, the handoff, and the training so the team can run it without the founder in the middle.</p>
+            </article>
+            <article class="pillar">
+              <div class="pillar-frame">
+                <picture>
+                  <source type="image/avif" srcset="assets/pillar-grow-480.avif 480w, assets/pillar-grow-720.avif 720w" sizes="(min-width: 900px) 30vw, 90vw" />
+                  <img src="assets/pillar-grow-720.webp" alt="A brushed chrome arrow rising like a growth chart." width="720" height="1016" loading="lazy" decoding="async" />
+                </picture>
+                <span class="pillar-sheen" aria-hidden="true"></span>
+              </div>
+              <h3>Grow</h3>
+              <p>Campaigns, ads, and a reading the team can use when the offer changes.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <div class="fold" aria-hidden="true">
-        <svg viewBox="0 0 1440 240" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="foldMetal" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#d8d8d8" />
-              <stop offset="0.38" stop-color="#5c5c5c" />
-              <stop offset="0.5" stop-color="#f4f4f4" />
-              <stop offset="1" stop-color="#2c2c2c" />
-            </linearGradient>
-          </defs>
-          <polygon points="0,98 1440,36 1440,58 0,120" fill="url(#foldMetal)" />
-        </svg>
-      </div>
-
-      <section class="band band-cut" id="map" aria-labelledby="map-title">
+      <section class="band" id="map" aria-labelledby="map-title">
         <div class="wrap section-head">
-          <p class="eyebrow">System state</p>
-          <h2 id="map-title">See the whole line.</h2>
-          <p class="readout" id="readout"><span class="broken-count">2 connections are broken:</span> Website to CRM, CRM to Analytics. Select a station to read the dependency.</p>
-          <p class="legend-note">Sound holds. Strained disagrees. Broken has no owner. Red is only the break.</p>
+          <p class="eyebrow">The chain</p>
+          <h2 id="map-title">Your business is a chain.</h2>
+          <p class="measure">One weak link costs you customers. In this picture the chain snaps between the website and the customer record: a request comes in, and nobody owns the next step.</p>
         </div>
-        <div class="map-stage" data-map>
-          <svg class="ribbon" viewBox="0 0 1200 480" role="presentation">
-            <defs>
-              <linearGradient id="chromeStroke" gradientUnits="userSpaceOnUse" x1="0" y1="80" x2="0" y2="420">
-                <stop offset="0" stop-color="#ffffff" />
-                <stop offset="0.48" stop-color="#b5b5b5" />
-                <stop offset="1" stop-color="#6e6e6e" />
-              </linearGradient>
-              <filter id="breakglow" x="-30%" y="-80%" width="160%" height="260%">
-                <feGaussianBlur stdDeviation="5" result="b" />
-                <feMerge>
-                  <feMergeNode in="b" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            <g class="pose pose-line" fill="none" stroke-linecap="round" stroke-width="22">
-              <path class="seg seg-sound" data-link="content-ads" stroke="url(#chromeStroke)" d="M 120 236 L 360 236" />
-              <path class="seg seg-strained" data-link="ads-website" stroke="url(#chromeStroke)" d="M 360 236 L 600 236" />
-              <path class="seg seg-broken" data-link="website-crm" stroke="#ff3b30" d="M 600 236 L 840 236" />
-              <path class="seg seg-broken" data-link="crm-analytics" stroke="#ff3b30" d="M 840 236 L 1080 236" />
-              <path class="spec" d="M 120 236 L 1080 236" stroke="#ffffff" stroke-width="3" />
-            </g>
-            <g class="pose pose-fold" fill="none" stroke-linecap="round" stroke-width="22">
-              <path class="seg seg-sound" data-link="content-ads" stroke="url(#chromeStroke)" d="M 120 108 L 360 372" />
-              <path class="seg seg-strained" data-link="ads-website" stroke="url(#chromeStroke)" d="M 360 372 L 600 108" />
-              <path class="seg seg-broken" data-link="website-crm" stroke="#ff3b30" d="M 600 108 L 840 372" />
-              <path class="seg seg-broken" data-link="crm-analytics" stroke="#ff3b30" d="M 840 372 L 1080 108" />
-            </g>
-            <g class="pose pose-live" fill="none" stroke-linecap="round" stroke-width="22">
-              <path class="seg seg-sound" data-link="content-ads" stroke="url(#chromeStroke)" d="M 120 108 L 360 372" />
-              <path class="seg seg-strained" data-link="ads-website" stroke="url(#chromeStroke)" d="M 360 372 L 600 108" />
-              <path class="seg seg-broken" data-link="website-crm" stroke="#ff3b30" d="M 600 108 L 840 372" />
-              <path class="seg seg-broken" data-link="crm-analytics" stroke="#ff3b30" d="M 840 372 L 1080 108" />
-              <path class="spec" d="M 120 236 L 1080 236" stroke="#ffffff" stroke-width="3" />
-            </g>
-          </svg>
-          <ul class="stations">
-            <li>
-              <a class="station" id="station-content" href="#panel-content" data-station="content" data-node="content" style="--lx: 10%; --ly: 49.2%; --fx: 10%; --fy: 22.5%" aria-expanded="false" aria-controls="panel-content">
-                <span class="dot" aria-hidden="true"></span>
-                <span class="stem stem-sound" aria-hidden="true"></span>
-                <span class="station-copy"><span class="station-name">Content</span><span class="station-role">The claim</span></span>
-              </a>
-            </li>
-            <li>
-              <a class="station" id="station-ads" href="#panel-ads" data-station="ads" data-node="ads" style="--lx: 30%; --ly: 49.2%; --fx: 30%; --fy: 77.5%" aria-expanded="false" aria-controls="panel-ads">
-                <span class="dot" aria-hidden="true"></span>
-                <span class="stem stem-strained" aria-hidden="true"></span>
-                <span class="station-copy"><span class="station-name">Ads</span><span class="station-role">The spend</span></span>
-              </a>
-            </li>
-            <li>
-              <a class="station is-on" id="station-website" href="#panel-website" data-station="website" data-node="website" style="--lx: 50%; --ly: 49.2%; --fx: 50%; --fy: 22.5%" aria-expanded="true" aria-current="true" aria-controls="panel-website">
-                <span class="dot" aria-hidden="true"></span>
-                <span class="stem stem-broken" aria-hidden="true"></span>
-                <span class="station-copy"><span class="station-name">Website</span><span class="station-role">The offer</span></span>
-              </a>
-            </li>
-            <li>
-              <a class="station" id="station-crm" href="#panel-crm" data-station="crm" data-node="crm" style="--lx: 70%; --ly: 49.2%; --fx: 70%; --fy: 77.5%" aria-expanded="false" aria-controls="panel-crm">
-                <span class="dot" aria-hidden="true"></span>
-                <span class="stem stem-broken" aria-hidden="true"></span>
-                <span class="station-copy"><span class="station-name">CRM</span><span class="station-role">The record</span></span>
-              </a>
-            </li>
-            <li>
-              <a class="station" id="station-analytics" href="#panel-analytics" data-station="analytics" data-node="analytics" style="--lx: 90%; --ly: 49.2%; --fx: 90%; --fy: 22.5%" aria-expanded="false" aria-controls="panel-analytics">
-                <span class="dot" aria-hidden="true"></span>
-                <span class="station-copy"><span class="station-name">Analytics</span><span class="station-role">The reading</span></span>
-              </a>
-            </li>
-          </ul>
+        <div class="chain">
+          <picture>
+            <source type="image/avif" srcset="assets/system-800.avif 800w, assets/system-1280.avif 1280w" sizes="(min-width: 900px) 72rem, 100vw" />
+            <img src="assets/system-1280.webp" alt="Chrome objects on a ribbon: a stack of pages, a megaphone, a website, a red break, gears, and a rising chart." width="1280" height="720" loading="lazy" decoding="async" />
+          </picture>
+          <div class="hots">
+            <button type="button" class="hot station" data-station="content" data-node="content" style="--l: 3%; --t: 30%; --w: 16%; --h: 38%" aria-expanded="false" aria-controls="panel-content">Content</button>
+            <button type="button" class="hot station" data-station="ads" data-node="ads" style="--l: 24%; --t: 28%; --w: 15%; --h: 40%" aria-expanded="false" aria-controls="panel-ads">Ads</button>
+            <button type="button" class="hot station is-on" data-station="website" data-node="website" style="--l: 41%; --t: 28%; --w: 16%; --h: 40%" aria-expanded="true" aria-current="true" aria-controls="panel-website">Website</button>
+            <button type="button" class="hot station" data-station="crm" data-node="crm" style="--l: 64%; --t: 26%; --w: 16%; --h: 42%" aria-expanded="false" aria-controls="panel-crm">CRM</button>
+            <button type="button" class="hot station" data-station="analytics" data-node="analytics" style="--l: 82%; --t: 24%; --w: 16%; --h: 46%" aria-expanded="false" aria-controls="panel-analytics">Analytics</button>
+          </div>
         </div>
-        <p class="help">Choose a station to read what depends on it. Arrow keys move across the line. A broken connection names the service that repairs it.</p>
-        <div class="panels">
-          <article class="panel" id="panel-content" data-station="content" aria-labelledby="station-content">
-            <p class="eyebrow">01 · The claim</p>
-            <h3>Content</h3>
-            <p>Depends on the website to hold the offer in public, and on ads only after the claim is stable.</p>
-            <ul class="deps">
-              <li><span class="flag flag-sound">Sound</span> Content to Ads. The same claim can feed the ad.</li>
-              <li><span class="flag flag-sound">Sound</span> Content to Website. The offer has a place to live.</li>
-            </ul>
-            <p><strong>Symptoms.</strong> Site looks dated. Nobody knows what we do. We need one system the team can run.</p>
-            <p>Repair with <a href="#growth-marketing">Growth Marketing</a>. The claim feeds the ad only after it is stable. <a href="#web-design">Web Design &amp; Development</a> gives the offer a place to live.</p>
+        <div class="wrap panels">
+          <article class="panel" id="panel-content" data-station="content" aria-labelledby="station-label-content">
+            <p class="eyebrow">What you say</p>
+            <h3 id="station-label-content">Content</h3>
+            <p><strong>What goes wrong.</strong> If the offer is fuzzy, the ads and the site each invent a version. A buyer cannot repeat what you do.</p>
+            <p><strong>What SWG does.</strong> We lock the claim first. Then the site and the ads can say the same thing.</p>
+            <p><a href="#growth-marketing">Growth Marketing</a> · <a href="#web-design">Web Design &amp; Development</a></p>
           </article>
-          <article class="panel" id="panel-ads" data-station="ads" aria-labelledby="station-ads">
-            <p class="eyebrow">02 · The spend</p>
-            <h3>Ads</h3>
-            <p>Depends on the website to keep the promise the click made, and on analytics before spend is raised.</p>
-            <ul class="deps">
-              <li><span class="flag flag-sound">Sound</span> Content to Ads. The same claim can feed the ad.</li>
-              <li><span class="flag flag-strained">Strained</span> Ads to Website. The click and the page disagree.</li>
-              <li><span class="flag flag-strained">Strained</span> Analytics to Ads. Spend changes without a reading.</li>
-            </ul>
-            <p><strong>Symptoms.</strong> Traffic but no leads. Paid media is leaking money.</p>
-            <p>Repair with <a href="#growth-marketing">Growth Marketing</a> and <a href="#conversion-analytics">Conversion &amp; Analytics</a> before spend is raised.</p>
+          <article class="panel" id="panel-ads" data-station="ads" aria-labelledby="station-label-ads">
+            <p class="eyebrow">The attention you pay for</p>
+            <h3 id="station-label-ads">Ads</h3>
+            <p><strong>What goes wrong.</strong> The ad promises one thing and the page says another. Money goes out before anyone can read what came back.</p>
+            <p><strong>What SWG does.</strong> We line the ad up with the page, and we do not raise spend until that result is visible.</p>
+            <p><a href="#growth-marketing">Growth Marketing</a> · <a href="#conversion-analytics">Conversion &amp; Analytics</a></p>
           </article>
-          <article class="panel is-on" id="panel-website" data-station="website" aria-labelledby="station-website">
-            <p class="eyebrow">03 · The offer</p>
-            <h3>Website</h3>
-            <p>Depends on content for the claim and on the CRM for what happens after submit.</p>
-            <ul class="deps">
-              <li><span class="flag flag-sound">Sound</span> Content to Website. The offer has a place to live.</li>
-              <li><span class="flag flag-strained">Strained</span> Ads to Website. The click and the page disagree.</li>
-              <li><span class="flag flag-broken">Broken</span> Website to CRM. Submit has no owner.</li>
-            </ul>
-            <p><strong>Symptoms.</strong> Traffic but no leads. Site looks dated. Nobody knows what we do. Handoffs live in an inbox. We need one system the team can run.</p>
-            <p>Repair with <a href="#web-design">Web Design &amp; Development</a>, the public instrument. <a href="#ai-automation">AI &amp; Automation</a> gives the submit an owner.</p>
+          <article class="panel is-on" id="panel-website" data-station="website" aria-labelledby="station-label-website">
+            <p class="eyebrow">The page they land on</p>
+            <h3 id="station-label-website">Website</h3>
+            <p><strong>What goes wrong.</strong> Someone asks, and the request lands in one inbox. Nobody owns the next step. That is the red break in the chain.</p>
+            <p><strong>What SWG does.</strong> We rebuild the page so the offer is obvious, and we connect the form to a record with an owner.</p>
+            <p><a href="#web-design">Web Design &amp; Development</a> · <a href="#ai-automation">AI &amp; Automation</a></p>
           </article>
-          <article class="panel" id="panel-crm" data-station="crm" aria-labelledby="station-crm">
-            <p class="eyebrow">04 · The record</p>
-            <h3>CRM</h3>
-            <p>Depends on the website for a clean request and on analytics so the handoff is visible.</p>
-            <ul class="deps">
-              <li><span class="flag flag-broken">Broken</span> Website to CRM. Submit has no owner.</li>
-              <li><span class="flag flag-broken">Broken</span> CRM to Analytics. The handoff is not measured.</li>
-            </ul>
-            <p><strong>Symptoms.</strong> Handoffs live in an inbox. We cannot measure conversions. We need one system the team can run.</p>
-            <p>Repair with <a href="#ai-automation">AI &amp; Automation</a>. The handoff, with an owner. <a href="#conversion-analytics">Conversion &amp; Analytics</a> makes that handoff visible.</p>
+          <article class="panel" id="panel-crm" data-station="crm" aria-labelledby="station-label-crm">
+            <p class="eyebrow">After they ask</p>
+            <h3 id="station-label-crm">CRM</h3>
+            <p><strong>What goes wrong.</strong> The founder is still passing notes by hand. Sales and delivery do not share a record, so nobody can say which inquiries were answered.</p>
+            <p><strong>What SWG does.</strong> Every request gets an owner, a next step, and a record the team can see.</p>
+            <p><a href="#ai-automation">AI &amp; Automation</a></p>
           </article>
-          <article class="panel" id="panel-analytics" data-station="analytics" aria-labelledby="station-analytics">
-            <p class="eyebrow">05 · The reading</p>
-            <h3>Analytics</h3>
-            <p>Depends on the CRM for a real conversion and on ads so the reading can change the spend.</p>
-            <ul class="deps">
-              <li><span class="flag flag-broken">Broken</span> CRM to Analytics. The handoff is not measured.</li>
-              <li><span class="flag flag-strained">Strained</span> Analytics to Ads. Spend changes without a reading.</li>
-            </ul>
-            <p><strong>Symptoms.</strong> We cannot measure conversions. Paid media is leaking money.</p>
-            <p>Repair with <a href="#conversion-analytics">Conversion &amp; Analytics</a>. If you cannot read the handoff, you cannot tell which fix worked.</p>
+          <article class="panel" id="panel-analytics" data-station="analytics" aria-labelledby="station-label-analytics">
+            <p class="eyebrow">Whether it worked</p>
+            <h3 id="station-label-analytics">Analytics</h3>
+            <p><strong>What goes wrong.</strong> Without a shared definition of a lead, later work is a guess and the ad budget changes blind.</p>
+            <p><strong>What SWG does.</strong> We name what counts, and we put that reading where the people who spend the money can use it.</p>
+            <p><a href="#conversion-analytics">Conversion &amp; Analytics</a></p>
           </article>
         </div>
-        <ul class="conn-list">
-          <li class="conn" data-link="content-website">
-            <button type="button" data-select="website"><span class="flag flag-sound">Sound</span><span><strong>Content to Website.</strong> The offer has a place to live.</span></button>
-            <a href="#web-design">Open Web design</a>
-          </li>
-          <li class="conn" data-link="content-ads">
-            <button type="button" data-select="ads"><span class="flag flag-sound">Sound</span><span><strong>Content to Ads.</strong> The same claim can feed the ad.</span></button>
-            <a href="#growth-marketing">Open Growth marketing</a>
-          </li>
-          <li class="conn" data-link="ads-website">
-            <button type="button" data-select="website"><span class="flag flag-strained">Strained</span><span><strong>Ads to Website.</strong> The click and the page disagree.</span></button>
-            <a href="#growth-marketing">Open Growth marketing</a>
-          </li>
-          <li class="conn" data-link="website-crm">
-            <button type="button" data-select="crm"><span class="flag flag-broken">Broken</span><span><strong>Website to CRM.</strong> Submit has no owner.</span></button>
-            <a href="#ai-automation">Open AI &amp; automation</a>
-          </li>
-          <li class="conn" data-link="crm-analytics">
-            <button type="button" data-select="analytics"><span class="flag flag-broken">Broken</span><span><strong>CRM to Analytics.</strong> The handoff is not measured.</span></button>
-            <a href="#conversion-analytics">Open Conversion &amp; analytics</a>
-          </li>
-          <li class="conn" data-link="analytics-ads">
-            <button type="button" data-select="ads"><span class="flag flag-strained">Strained</span><span><strong>Analytics to Ads.</strong> Spend changes without a reading.</span></button>
-            <a href="#conversion-analytics">Open Conversion &amp; analytics</a>
-          </li>
-        </ul>
+        <p class="help">Choose a part of the chain. Arrow keys move across it.</p>
       </section>
 
       <section class="band reveal" id="symptoms" aria-labelledby="symptom-title">

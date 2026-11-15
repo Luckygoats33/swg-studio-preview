@@ -352,29 +352,17 @@
     io.observe(mark);
   }
 
-  function bootExtras() {
-    if (motion !== "playing") return;
-    var wide = window.matchMedia("(min-width: 960px)").matches;
-    if (wide) {
-      var gsapScript = document.createElement("script");
-      gsapScript.src = "js/gsap.min.js";
-      gsapScript.onload = function () {
-        var st = document.createElement("script");
-        st.src = "js/ScrollTrigger.min.js";
-        st.onload = function () {
-          var motionScript = document.createElement("script");
-          motionScript.src = "js/motion.js";
-          document.body.appendChild(motionScript);
-        };
-        document.body.appendChild(st);
-      };
-      document.body.appendChild(gsapScript);
-    }
-    var shader = document.createElement("script");
-    shader.src = "js/shader.js";
-    document.body.appendChild(shader);
+  if (motion === "playing" && fine.matches && !forced.matches) {
+    document.querySelectorAll(".button, .button-quiet").forEach(function (btn) {
+      btn.addEventListener("pointermove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - (r.left + r.width / 2)) * 0.22;
+        var y = (e.clientY - (r.top + r.height / 2)) * 0.28;
+        btn.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
+      });
+      btn.addEventListener("pointerleave", function () {
+        btn.style.transform = "";
+      });
+    });
   }
-
-  if ("requestIdleCallback" in window) requestIdleCallback(bootExtras, { timeout: 1200 });
-  else window.addEventListener("load", function () { setTimeout(bootExtras, 300); });
 })();
