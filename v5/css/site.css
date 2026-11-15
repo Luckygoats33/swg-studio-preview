@@ -94,7 +94,11 @@ h1, h2, .display, .price, .num, .brand-name {
   line-height: 0.94;
 }
 
-h1 { font-size: clamp(2.7rem, 7.4vw, 6.6rem); }
+h1 { font-size: clamp(2.4rem, 12vw, 6rem); }
+
+@supports (width: 1cqi) {
+  h1 { font-size: clamp(2.4rem, 13cqi, 6rem); }
+}
 
 h2 { font-size: clamp(2.2rem, 4.6vw, 4.2rem); }
 
@@ -317,9 +321,10 @@ a:hover { text-decoration-thickness: 2px; }
   max-width: 46rem;
   margin-right: auto;
   margin-left: max(2rem, calc((100% - var(--max)) / 2));
+  container-type: inline-size;
 }
 
-.line { display: block; }
+.line { display: block; white-space: nowrap; }
 
 .swg {
   color: #f4f4f2;
@@ -814,7 +819,6 @@ html[data-motion="playing"] .hero-video.is-playing {
     background: linear-gradient(180deg, rgba(5, 5, 5, 0.05) 0%, rgba(5, 5, 5, 0.55) 42%, #050505 68%);
   }
   .hero-media img, .hero-video { object-position: center 30%; }
-  h1 { font-size: clamp(2.45rem, 12vw, 3.4rem); }
   .band { padding: 4.5rem 0; }
 }
 
