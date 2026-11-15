@@ -85,8 +85,22 @@
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <div class="ambience" aria-hidden="true">
+      <span data-glow-layer="blue" class="is-on"></span>
+      <span data-glow-layer="steel"></span>
+      <span data-glow-layer="amber"></span>
+    </div>
+    <svg class="icon-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="iconMetal" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff" />
+          <stop offset="0.42" stop-color="#9a9a9a" />
+          <stop offset="0.55" stop-color="#ffffff" />
+          <stop offset="1" stop-color="#4e4e4e" />
+        </linearGradient>
+      </defs>
+    </svg>
     <div class="loader" aria-hidden="true"><img src="assets/dot-64.webp" alt="" width="64" height="64" /></div>
-    <div class="cursor" aria-hidden="true"><img src="assets/dot-64.webp" alt="" width="64" height="64" /></div>
     <div class="rail" aria-hidden="true"><span class="rail-dot"></span></div>
     <header class="site-header">
       <a class="brand" href="./">
@@ -111,13 +125,14 @@
       </div>
     </header>
     <main id="main">
-      <section class="hero" aria-labelledby="home-title">
+      <section class="hero" data-glow="blue" aria-labelledby="home-title">
         <picture class="hero-media">
           <source type="image/avif" srcset="assets/hero-800.avif 800w, assets/hero-1280.avif 1280w" sizes="100vw" />
           <img src="assets/hero-1280.webp" srcset="assets/hero-800.webp 800w, assets/hero-1280.webp 1280w" sizes="100vw" alt="" width="1280" height="720" fetchpriority="high" decoding="async" />
+          <video class="hero-video" muted playsinline loop preload="none" poster="assets/hero-1280.webp"></video>
         </picture>
         <span class="hero-sweep" aria-hidden="true"></span>
-        <div class="wrap hero-copy">
+        <div class="hero-copy">
           <p class="eyebrow">SWG Studio · Working digital systems lab</p>
           <div class="hero-logo">
             <div class="mark">
@@ -148,7 +163,7 @@
         <path class="thread-path" pathLength="1" fill="none" stroke="url(#threadG)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" d="M42 0 L42 70 L16 102 L42 134 L42 250 L66 286 L42 322 L42 470 L14 512 L42 554 L42 720 L68 762 L42 804 L42 1000" />
       </svg>
 
-      <section class="band" id="pillars" aria-labelledby="pillars-title">
+      <section class="band" id="pillars" data-glow="steel" aria-labelledby="pillars-title">
         <div class="wrap">
           <p class="eyebrow">The work</p>
           <h2 id="pillars-title">Three moves.</h2>
@@ -191,7 +206,7 @@
         </div>
       </section>
 
-      <section class="band" id="map" aria-labelledby="map-title">
+      <section class="band" id="map" data-glow="blue" aria-labelledby="map-title">
         <div class="wrap section-head">
           <p class="eyebrow">The chain</p>
           <h2 id="map-title">Your business is a chain.</h2>
@@ -250,7 +265,7 @@
         <p class="help">Choose a part of the chain. Arrow keys move across it.</p>
       </section>
 
-      <section class="band reveal" id="symptoms" aria-labelledby="symptom-title">
+      <section class="band reveal" id="symptoms" data-glow="steel" aria-labelledby="symptom-title">
         <div class="wrap">
           <p class="eyebrow">02</p>
           <h2 id="symptom-title">Name the leak.</h2>
@@ -267,7 +282,7 @@
         </div>
       </section>
 
-      <section class="band reveal" id="case" aria-labelledby="case-title">
+      <section class="band reveal" id="case" data-glow="amber" aria-labelledby="case-title">
         <div class="wrap case-grid">
           <div>
             <p class="eyebrow">03 · Example. Not a client result.</p>
@@ -316,7 +331,67 @@
         </div>
       </section>
 
-      <section class="band reveal" id="services" aria-labelledby="services-title">
+      <section class="band reveal" id="compare" data-glow="amber" aria-labelledby="compare-title">
+        <div class="wrap">
+          <p class="eyebrow">Illustration. Not a client result.</p>
+          <h2 id="compare-title">Tangled, then connected.</h2>
+          <p class="measure">Drag the handle, or use the arrow keys. The left side is a business whose tools do not share a path. The right side is the same kind of work on one chrome line. This is a drawing, not a client.</p>
+          <div class="compare">
+            <div class="compare-pane compare-after" aria-hidden="true">
+              <svg viewBox="0 0 640 280" class="compare-art">
+                <path d="M70 150 H570" fill="none" stroke="url(#iconMetal)" stroke-width="10" stroke-linecap="round"/>
+                <g fill="#050505" stroke="url(#iconMetal)" stroke-width="2">
+                  <rect x="48" y="118" width="48" height="64" rx="4"/>
+                  <rect x="168" y="118" width="48" height="64" rx="4"/>
+                  <rect x="296" y="110" width="56" height="80" rx="4"/>
+                  <rect x="424" y="118" width="48" height="64" rx="4"/>
+                  <rect x="544" y="118" width="48" height="64" rx="4"/>
+                </g>
+                <g fill="#2F7BFF">
+                  <circle cx="72" cy="150" r="7"/>
+                  <circle cx="192" cy="150" r="7"/>
+                  <circle cx="324" cy="150" r="7"/>
+                  <circle cx="448" cy="150" r="7"/>
+                  <circle cx="568" cy="150" r="7"/>
+                </g>
+                <g fill="#d8d8d8" font-family="sans-serif" font-size="14">
+                  <text x="46" y="210">Claim</text>
+                  <text x="176" y="210">Ads</text>
+                  <text x="292" y="210">Website</text>
+                  <text x="428" y="210">Record</text>
+                  <text x="546" y="210">Reading</text>
+                </g>
+              </svg>
+            </div>
+            <div class="compare-pane compare-before" aria-hidden="true">
+              <div class="compare-clip">
+                <svg viewBox="0 0 640 280" class="compare-art">
+                  <path d="M40 60 C120 200 80 40 200 160 S280 240 340 80 S460 40 520 180 S600 220 620 90" fill="none" stroke="#6e6e6e" stroke-width="3"/>
+                  <path d="M80 220 C160 40 240 240 300 100 S420 200 500 60" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+                  <g fill="#111" stroke="#bdbdbd" stroke-width="2">
+                    <rect x="36" y="48" width="54" height="40" transform="rotate(-8 63 68)"/>
+                    <rect x="150" y="170" width="54" height="40" transform="rotate(12 177 190)"/>
+                    <rect x="250" y="36" width="60" height="44" transform="rotate(6 280 58)"/>
+                    <rect x="360" y="150" width="54" height="40" transform="rotate(-14 387 170)"/>
+                    <rect x="490" y="70" width="54" height="40" transform="rotate(10 517 90)"/>
+                  </g>
+                  <g fill="#9a9a9a" font-family="sans-serif" font-size="13">
+                    <text x="40" y="130">Inbox</text>
+                    <text x="150" y="150">Ads</text>
+                    <text x="250" y="110">Page</text>
+                    <text x="360" y="130">Notes</text>
+                    <text x="490" y="150">Guess</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <input class="compare-range" type="range" min="0" max="100" value="54" aria-label="Show more of the tangled system or the connected system" />
+          </div>
+          <p class="compare-key"><span>Before, disconnected</span><span>After, one line</span></p>
+        </div>
+      </section>
+
+      <section class="band reveal" id="services" data-glow="blue" aria-labelledby="services-title">
         <div class="wrap">
           <p class="eyebrow">04</p>
           <h2 id="services-title">Four services, one system.</h2>
@@ -324,24 +399,28 @@
           <ol class="services">
             <li id="web-design">
               <article>
+                <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="9" y="11" width="30" height="24" rx="1.5" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><path d="M9 18h30" fill="none" stroke="url(#iconMetal)" stroke-width="2"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">01</span>
                 <span><h3>Web Design &amp; Development</h3><small>The public instrument. A website that finally says what the business has become.</small></span>
               </article>
             </li>
             <li id="growth-marketing">
               <article>
+                <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 30l6-4V18l16-7v22L18 26" fill="none" stroke="url(#iconMetal)" stroke-width="2" stroke-linejoin="round"/><path d="M14 31c1 4 3 7 6 8" fill="none" stroke="url(#iconMetal)" stroke-width="2" stroke-linecap="round"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">02</span>
                 <span><h3>Growth Marketing</h3><small>The path from spend to the page. Paid attention is a leak until the path can hold it.</small></span>
               </article>
             </li>
             <li id="ai-automation">
               <article>
+                <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="14" cy="32" r="3.2" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><circle cx="24" cy="14" r="3.2" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><circle cx="34" cy="30" r="3.2" fill="none" stroke="url(#iconMetal)" stroke-width="2"/><path d="M16.5 29.5 21.5 17M26.5 17 31.5 27.5M17 32h14" fill="none" stroke="url(#iconMetal)" stroke-width="2"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">03</span>
                 <span><h3>AI &amp; Automation</h3><small>The handoff, with an owner. If the team is the integration, the system is not finished.</small></span>
               </article>
             </li>
             <li id="conversion-analytics">
               <article>
+                <span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 34V22M22 34V14M32 34V18" fill="none" stroke="url(#iconMetal)" stroke-width="3" stroke-linecap="round"/><path d="M10 36h28" fill="none" stroke="url(#iconMetal)" stroke-width="2"/></svg><span class="icon-sheen"></span></span>
                 <span class="loop-index">04</span>
                 <span><h3>Conversion &amp; Analytics</h3><small>The reading. If you cannot read the handoff, you cannot tell which fix worked.</small></span>
               </article>
@@ -350,7 +429,7 @@
         </div>
       </section>
 
-      <section class="band reveal" id="process" aria-labelledby="process-title">
+      <section class="band reveal" id="process" data-glow="steel" aria-labelledby="process-title">
         <div class="wrap">
           <p class="eyebrow">05</p>
           <h2 id="process-title">Diagnose. Align. Rebuild.</h2>
@@ -374,7 +453,7 @@
         </div>
       </section>
 
-      <section class="band band-cut reveal" id="plans" aria-labelledby="plans-title">
+      <section class="band band-cut reveal" id="plans" data-glow="amber" aria-labelledby="plans-title">
         <div class="wrap">
           <p class="eyebrow">06</p>
           <h2 id="plans-title">Three plans.</h2>
@@ -439,7 +518,7 @@
         </div>
       </section>
 
-      <section class="band reveal" id="start" aria-labelledby="start-title">
+      <section class="band reveal" id="start" data-glow="blue" aria-labelledby="start-title">
         <div class="wrap">
           <p class="eyebrow">07</p>
           <h2 id="start-title">Start from the symptom.</h2>
@@ -469,7 +548,7 @@
         </div>
       </section>
 
-      <section class="band reveal" id="studio" aria-labelledby="studio-title">
+      <section class="band reveal" id="studio" data-glow="steel" aria-labelledby="studio-title">
         <div class="wrap about-grid">
           <h2 id="studio-title">The studio.</h2>
           <div>
@@ -481,7 +560,7 @@
         </div>
       </section>
 
-      <section class="band cta" aria-labelledby="cta-title">
+      <section class="band cta" data-glow="blue" aria-labelledby="cta-title">
         <div class="wrap">
           <h2 id="cta-title"><span class="line">Strategize it.</span><span class="line">Workshop it.</span><span class="line">Grow it.</span></h2>
           <p class="positioning">Can you fix it? With SWG, you can.</p>

@@ -4,40 +4,6 @@
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
   var forced = window.matchMedia("(forced-colors: active)");
 
-  var cursor = document.querySelector(".cursor");
-  if (cursor && motion === "playing" && fine.matches && !forced.matches) {
-    root.classList.add("has-cursor");
-    var x = 0;
-    var y = 0;
-    var on = false;
-    window.addEventListener(
-      "pointermove",
-      function (e) {
-        x = e.clientX;
-        y = e.clientY;
-        cursor.style.left = x + "px";
-        cursor.style.top = y + "px";
-        if (!on) {
-          on = true;
-          cursor.classList.add("is-on");
-        }
-      },
-      { passive: true }
-    );
-    document.addEventListener(
-      "pointerover",
-      function (e) {
-        var hit = e.target.closest && e.target.closest("a, button, summary, label, input");
-        cursor.classList.toggle("is-hot", !!hit);
-      },
-      { passive: true }
-    );
-    document.addEventListener("pointerleave", function () {
-      cursor.classList.remove("is-on");
-      on = false;
-    });
-  }
-
   var navToggle = document.getElementById("nav-toggle");
   if (navToggle) {
     document.addEventListener("keydown", function (e) {
@@ -351,6 +317,71 @@
     );
     io.observe(mark);
   }
+
+  var range = document.querySelector(".compare-range");
+  var beforePane = document.querySelector(".compare-before");
+  if (range && beforePane) {
+    var paintCompare = function () {
+      beforePane.style.width = range.value + "%";
+    };
+    range.addEventListener("input", paintCompare);
+    paintCompare();
+  }
+
+  var layers = {};
+  document.querySelectorAll("[data-glow-layer]").forEach(function (layer) {
+    layers[layer.getAttribute("data-glow-layer")] = layer;
+  });
+  var glowTargets = document.querySelectorAll("[data-glow]");
+  if (glowTargets.length && "IntersectionObserver" in window) {
+    var currentGlow = "blue";
+    var applyGlow = function (name) {
+      if (!name || name === currentGlow) return;
+      currentGlow = name;
+      Object.keys(layers).forEach(function (key) {
+        layers[key].classList.toggle("is-on", key === name);
+      });
+    };
+    var glowObserver = new IntersectionObserver(
+      function (entries) {
+        var best = null;
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && (!best || entry.intersectionRatio > best.intersectionRatio)) best = entry;
+        });
+        if (best) applyGlow(best.target.getAttribute("data-glow"));
+      },
+      { threshold: [0.35, 0.6] }
+    );
+    glowTargets.forEach(function (el) {
+      glowObserver.observe(el);
+    });
+  }
+
+  function bootVideo() {
+    if (motion !== "playing") return;
+    if (navigator.connection && navigator.connection.saveData) return;
+    var video = document.querySelector(".hero-video");
+    if (!video) return;
+    var webm = document.createElement("source");
+    webm.src = "assets/hero-loop.webm";
+    webm.type = "video/webm";
+    var mp4 = document.createElement("source");
+    mp4.src = "assets/hero-loop.mp4";
+    mp4.type = "video/mp4";
+    video.appendChild(webm);
+    video.appendChild(mp4);
+    video.addEventListener(
+      "playing",
+      function () {
+        video.classList.add("is-playing");
+      },
+      { once: true }
+    );
+    var playAttempt = video.play();
+    if (playAttempt && playAttempt.catch) playAttempt.catch(function () {});
+  }
+  if ("requestIdleCallback" in window) requestIdleCallback(bootVideo, { timeout: 1500 });
+  else window.addEventListener("load", bootVideo);
 
   if (motion === "playing" && fine.matches && !forced.matches) {
     document.querySelectorAll(".button, .button-quiet").forEach(function (btn) {
