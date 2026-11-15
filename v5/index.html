@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        var state = "playing";
+        try {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) state = "reduced";
+        } catch (e) {}
+        document.documentElement.dataset.motion = state;
+      })();
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SWG Studio | Strategize it. Workshop it. Grow it.</title>
+    <meta name="description" content="SWG helps businesses strategize, workshop, and grow. We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems." />
+    <link rel="canonical" href="https://luckygoats33.github.io/swg-studio-preview/v5/" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SWG Studio" />
+    <meta property="og:title" content="SWG Studio | Strategize it. Workshop it. Grow it." />
+    <meta property="og:description" content="SWG helps businesses strategize, workshop, and grow. We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems." />
+    <meta property="og:url" content="https://luckygoats33.github.io/swg-studio-preview/v5/" />
+    <meta property="og:image" content="https://luckygoats33.github.io/swg-studio-preview/v5/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SWG. chrome wordmark on black." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SWG Studio | Strategize it. Workshop it. Grow it." />
+    <meta name="twitter:description" content="SWG helps businesses strategize, workshop, and grow. We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems." />
+    <meta name="twitter:image" content="https://luckygoats33.github.io/swg-studio-preview/v5/og.png" />
+    <meta name="twitter:image:alt" content="SWG. chrome wordmark on black." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://supportwellnessglobal.com/#organization",
+            "name": "Support Wellness Global",
+            "alternateName": "SWG",
+            "url": "https://supportwellnessglobal.com",
+            "email": "info@supportwellnessglobal.com",
+            "logo": "https://luckygoats33.github.io/swg-studio-preview/v5/og.png",
+            "description": "Support Wellness Global is the parent firm of SWG Studio, a working digital systems lab. Wellness means healthier businesses.",
+            "brand": {
+              "@type": "Brand",
+              "name": "SWG Studio",
+              "url": "https://luckygoats33.github.io/swg-studio-preview/v5/"
+            },
+            "employee": {
+              "@type": "Person",
+              "name": "Will Wiedenmann",
+              "jobTitle": "Studio lead"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://luckygoats33.github.io/swg-studio-preview/v5/#website",
+            "url": "https://luckygoats33.github.io/swg-studio-preview/v5/",
+            "name": "SWG Studio",
+            "description": "SWG helps businesses strategize, workshop, and grow. We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems.",
+            "publisher": { "@id": "https://supportwellnessglobal.com/#organization" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://luckygoats33.github.io/swg-studio-preview/v5/#webpage",
+            "url": "https://luckygoats33.github.io/swg-studio-preview/v5/",
+            "name": "SWG Studio | Strategize it. Workshop it. Grow it.",
+            "description": "SWG helps businesses strategize, workshop, and grow. We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems.",
+            "isPartOf": { "@id": "https://luckygoats33.github.io/swg-studio-preview/v5/#website" },
+            "about": { "@id": "https://supportwellnessglobal.com/#organization" }
+          }
+        ]
+      }
+    </script>
+    <link rel="preload" href="assets/swg-logo.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/avif" href="assets/hero-1280.avif" imagesrcset="assets/hero-800.avif 800w, assets/hero-1280.avif 1280w" imagesizes="100vw" fetchpriority="high" />
+    <link rel="preload" href="fonts/unbounded-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/site.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./">
+        <img src="assets/swg-logo.webp" alt="SWG." width="1225" height="281" />
+      </a>
+      <div class="header-tools">
+        <div class="nav">
+          <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+          <label class="nav-button" for="nav-toggle"><span class="when-closed">Menu</span><span class="when-open">Close</span></label>
+          <nav class="nav-panel" id="primary-nav" aria-label="Primary">
+            <a href="#map">Map</a>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#plans">Plans</a>
+            <a href="#studio">Studio</a>
+          </nav>
+        </div>
+        <a class="button button-small" href="#start">Start a project</a>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="home-title">
+        <picture class="hero-media">
+          <source type="image/avif" srcset="assets/hero-800.avif 800w, assets/hero-1280.avif 1280w" sizes="100vw" />
+          <img src="assets/hero-1280.webp" srcset="assets/hero-800.webp 800w, assets/hero-1280.webp 1280w" sizes="100vw" alt="" width="1280" height="720" fetchpriority="high" decoding="async" />
+          <video class="hero-video" muted playsinline loop preload="none" poster="assets/hero-1280.webp"></video>
+        </picture>
+        <div class="hero-copy">
+          <p class="eyebrow">SWG Studio · Working digital systems lab</p>
+          <h1 id="home-title">
+            <span class="line"><span class="swg">S</span>trategize it.</span>
+            <span class="line"><span class="swg">W</span>orkshop it.</span>
+            <span class="line"><span class="swg">G</span>row it.</span>
+          </h1>
+          <p class="positioning">Strategy, workshops, and growth across the whole business.</p>
+          <p class="lede">We plan, build, and run websites, campaigns, CRM, AI workflows, and operating systems.</p>
+          <div class="actions">
+            <a class="button" href="#start">Start with the symptom</a>
+            <a class="button button-quiet" href="#map">See the chain</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band light reveal" id="pillars" aria-labelledby="pillars-title">
+        <div class="grid">
+          <div class="span-5">
+            <p class="eyebrow">The work</p>
+            <h2 id="pillars-title">Three moves.</h2>
+            <p class="measure">Strategy, the workshop that builds the system, and the growth that follows. Not a slogan, and not a tool list.</p>
+            <ol class="moves">
+              <li>
+                <h3>Strategize</h3>
+                <p>The claim, the offer, and the plan, before a new campaign or a new tool.</p>
+              </li>
+              <li>
+                <h3>Workshop</h3>
+                <p>The site, the handoff, and the training so the team can run it without the founder in the middle.</p>
+              </li>
+              <li>
+                <h3>Grow</h3>
+                <p>Campaigns, ads, and a reading the team can use when the offer changes.</p>
+              </li>
+            </ol>
+          </div>
+          <figure class="span-6 start-7 plate">
+            <picture>
+              <source type="image/avif" srcset="assets/pillar-strategize-480.avif 480w, assets/pillar-strategize-720.avif 720w" sizes="(min-width: 900px) 42vw, 100vw" />
+              <img src="assets/pillar-strategize-720.webp" alt="A brushed chrome compass." width="720" height="1120" loading="lazy" decoding="async" />
+            </picture>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band reveal" id="map" aria-labelledby="map-title">
+        <div class="grid">
+          <div class="span-7">
+            <p class="eyebrow">The chain</p>
+            <h2 id="map-title">Your business is a chain.</h2>
+            <p class="measure">One weak link costs you customers. In this picture the chain snaps between the website and the customer record: a request comes in, and nobody owns the next step.</p>
+          </div>
+        </div>
+        <div class="chain">
+          <picture>
+            <source type="image/avif" srcset="assets/system-800.avif 800w, assets/system-1280.avif 1280w" sizes="100vw" />
+            <img src="assets/system-1280.webp" alt="Chrome objects on a ribbon: a stack of pages, a megaphone, a website, a red break, gears, and a rising chart." width="1280" height="720" loading="lazy" decoding="async" />
+          </picture>
+          <svg class="flow" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path class="flow-line" pathLength="1" d="M90 455 C 220 520, 300 390, 470 455 S 690 530, 820 430 S 1040 360, 1220 430" fill="none" stroke="#f7f7f5" stroke-width="2" stroke-linecap="round" opacity="0.55" vector-effect="non-scaling-stroke" />
+            <path class="repair-line" pathLength="1" d="M690 470 C 760 520, 820 400, 900 450" fill="none" stroke="#f7f7f5" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+          </svg>
+          <span class="break-pulse" aria-hidden="true"></span>
+          <div class="hots">
+            <button type="button" class="hot station" data-station="content" style="--l: 3%; --t: 30%; --w: 16%; --h: 38%" aria-expanded="false" aria-controls="panel-content">Content</button>
+            <button type="button" class="hot station" data-station="ads" style="--l: 24%; --t: 28%; --w: 15%; --h: 40%" aria-expanded="false" aria-controls="panel-ads">Ads</button>
+            <button type="button" class="hot station is-on" data-station="website" style="--l: 41%; --t: 28%; --w: 16%; --h: 40%" aria-expanded="true" aria-current="true" aria-controls="panel-website">Website</button>
+            <button type="button" class="hot station" data-station="crm" style="--l: 64%; --t: 26%; --w: 16%; --h: 42%" aria-expanded="false" aria-controls="panel-crm">CRM</button>
+            <button type="button" class="hot station" data-station="analytics" style="--l: 82%; --t: 24%; --w: 16%; --h: 46%" aria-expanded="false" aria-controls="panel-analytics">Analytics</button>
+          </div>
+        </div>
+        <div class="grid fix-row">
+          <p class="span-12"><button type="button" class="button" id="fix-chain" aria-pressed="false">Fix the break</button></p>
+        </div>
+        <div class="grid panels">
+          <article class="panel span-8" id="panel-content" data-station="content" aria-labelledby="station-label-content">
+            <p class="eyebrow">What you say</p>
+            <h3 id="station-label-content">Content</h3>
+            <p><strong>What goes wrong.</strong> If the offer is fuzzy, the ads and the site each invent a version. A buyer cannot repeat what you do.</p>
+            <p><strong>What SWG does.</strong> We lock the claim first. Then the site and the ads can say the same thing.</p>
+            <p><a href="#growth-marketing">Growth Marketing</a> · <a href="#web-design">Web Design &amp; Development</a></p>
+          </article>
+          <article class="panel span-8" id="panel-ads" data-station="ads" aria-labelledby="station-label-ads">
+            <p class="eyebrow">The attention you pay for</p>
+            <h3 id="station-label-ads">Ads</h3>
+            <p><strong>What goes wrong.</strong> The ad promises one thing and the page says another. Money goes out before anyone can read what came back.</p>
+            <p><strong>What SWG does.</strong> We line the ad up with the page, and we do not raise spend until that result is visible.</p>
+            <p><a href="#growth-marketing">Growth Marketing</a> · <a href="#conversion-analytics">Conversion &amp; Analytics</a></p>
+          </article>
+          <article class="panel is-on span-8" id="panel-website" data-station="website" aria-labelledby="station-label-website">
+            <p class="eyebrow">The page they land on</p>
+            <h3 id="station-label-website">Website</h3>
+            <p><strong>What goes wrong.</strong> Someone asks, and the request lands in one inbox. Nobody owns the next step. That is the red break in the chain.</p>
+            <p><strong>What SWG does.</strong> We rebuild the page so the offer is obvious, and we connect the form to a record with an owner.</p>
+            <p><a href="#web-design">Web Design &amp; Development</a> · <a href="#ai-automation">AI &amp; Automation</a></p>
+          </article>
+          <article class="panel span-8" id="panel-crm" data-station="crm" aria-labelledby="station-label-crm">
+            <p class="eyebrow">After they ask</p>
+            <h3 id="station-label-crm">CRM</h3>
+            <p><strong>What goes wrong.</strong> The founder is still passing notes by hand. Sales and delivery do not share a record, so nobody can say which inquiries were answered.</p>
+            <p><strong>What SWG does.</strong> Every request gets an owner, a next step, and a record the team can see.</p>
+            <p><a href="#ai-automation">AI &amp; Automation</a></p>
+          </article>
+          <article class="panel span-8" id="panel-analytics" data-station="analytics" aria-labelledby="station-label-analytics">
+            <p class="eyebrow">Whether it worked</p>
+            <h3 id="station-label-analytics">Analytics</h3>
+            <p><strong>What goes wrong.</strong> Without a shared definition of a lead, later work is a guess and the ad budget changes blind.</p>
+            <p><strong>What SWG does.</strong> We name what counts, and we put that reading where the people who spend the money can use it.</p>
+            <p><a href="#conversion-analytics">Conversion &amp; Analytics</a></p>
+          </article>
+        </div>
+        <div class="grid">
+          <p class="help span-8">Choose a part of the chain. Arrow keys move across it.</p>
+        </div>
+      </section>
+
+      <section class="band reveal" id="symptoms" aria-labelledby="symptom-title">
+        <div class="grid">
+          <div class="span-5">
+            <p class="eyebrow">The leak</p>
+            <h2 id="symptom-title">Name the leak.</h2>
+            <p class="measure">Choose a symptom. It opens the diagnostic with that break selected.</p>
+          </div>
+          <ul class="leaks span-6 start-7">
+            <li><a href="?symptom=traffic-no-leads#start" data-symptom="traffic-no-leads">Traffic but no leads</a></li>
+            <li><a href="?symptom=site-dated#start" data-symptom="site-dated">Site looks dated</a></li>
+            <li><a href="?symptom=unclear-offer#start" data-symptom="unclear-offer">Nobody knows what we do</a></li>
+            <li><a href="?symptom=paid-leaking#start" data-symptom="paid-leaking">Paid media is leaking money</a></li>
+            <li><a href="?symptom=cannot-measure#start" data-symptom="cannot-measure">We cannot measure conversions</a></li>
+            <li><a href="?symptom=inbox-handoff#start" data-symptom="inbox-handoff">Handoffs live in an inbox</a></li>
+            <li><a href="?symptom=team-can-run#start" data-symptom="team-can-run">We need one system the team can run</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band reveal" id="case" aria-labelledby="case-title">
+        <div class="grid">
+          <div class="span-6">
+            <p class="eyebrow amber">Example. Not a client result.</p>
+            <h2 id="case-title">The inquiry with no owner</h2>
+            <p class="measure">A template for documenting an inquiry path. This is not a client engagement and it reports no results.</p>
+            <fieldset class="phases">
+              <legend class="sr">Before, intervention, after</legend>
+              <div class="phase-options">
+                <label><input type="radio" name="home-phase" value="before" checked /><span>Before</span></label>
+                <label><input type="radio" name="home-phase" value="intervention" /><span>Intervention</span></label>
+                <label><input type="radio" name="home-phase" value="after" /><span>After</span></label>
+              </div>
+              <article class="phase" data-phase="before">
+                <h3>Five steps, one inbox</h3>
+                <p>A request reaches the site, lands in a personal inbox, and waits for the founder to forward it. Sales and delivery do not share a record.</p>
+              </article>
+              <article class="phase" data-phase="intervention">
+                <h3>Name the owner before the rebuild</h3>
+                <p>The offer, the form, the owner, and the review rule are written down first. Tools come after the handoff is clear.</p>
+              </article>
+              <article class="phase" data-phase="after">
+                <h3>A request with a next step</h3>
+                <p>The template ends with a path that has an owner and a record. It does not end with a metric. Numbers wait for client approval.</p>
+              </article>
+            </fieldset>
+          </div>
+          <div class="span-5 start-8">
+            <p>This entry shows the fields a real SWG Studio case study would carry. It is not a client. It is not a result.</p>
+            <p><strong>Objective.</strong> Give every inquiry an owner and a next step the rest of the team can see.</p>
+            <p><strong>Problem.</strong> Requests arrive through a form and then sit in one person's inbox. Sales waits for a forward. Delivery asks for the same context again. Nobody can say which inquiries were answered.</p>
+            <p><strong>Intervention.</strong> Name the offer on the page, connect the form to a shared record, and write the handoff before any new campaign spend.</p>
+            <ul class="deliver">
+              <li>Message hierarchy for the public page</li>
+              <li>A single next step, with the owner named</li>
+              <li>Form to record routing</li>
+              <li>Handoff note for the people who respond</li>
+              <li>Event list for a later measurement pass</li>
+            </ul>
+            <p class="muted">Stack is illustrative for this template, not a client's production list: marketing site, form handler, shared inbox or CRM, analytics events.</p>
+            <div class="placeholders">
+              <p class="placeholder"><strong>Outcomes. Placeholder.</strong> No results are published. Do not invent a conversion rate, a revenue number, or a time saved.</p>
+              <p class="placeholder"><strong>Testimonial. Placeholder.</strong> None. Do not add a quote until the client has approved the words and the attribution.</p>
+              <p class="placeholder"><strong>Media. Placeholder.</strong> No client media on file.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band light reveal" id="compare" aria-labelledby="compare-title">
+        <div class="grid">
+          <div class="span-7">
+            <p class="eyebrow">Illustration. Not a client result.</p>
+            <h2 id="compare-title">Tangled, then connected.</h2>
+            <p class="measure">Drag the handle, or use the arrow keys. The left side is a business whose tools do not share a path. The right side is the same kind of work on one chrome line. This is a drawing, not a client.</p>
+          </div>
+          <div class="compare span-12">
+            <div class="compare-pane compare-after" aria-hidden="true">
+              <svg viewBox="0 0 640 280" class="compare-art">
+                <path d="M70 150 H570" fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+                <g fill="#e6e8eb" stroke="#1a1a1a" stroke-width="2">
+                  <rect x="48" y="118" width="48" height="64" rx="2"/>
+                  <rect x="168" y="118" width="48" height="64" rx="2"/>
+                  <rect x="296" y="110" width="56" height="80" rx="2"/>
+                  <rect x="424" y="118" width="48" height="64" rx="2"/>
+                  <rect x="544" y="118" width="48" height="64" rx="2"/>
+                </g>
+                <g fill="#f7f7f5" stroke="#6a6a6a" stroke-width="1.5">
+                  <circle cx="72" cy="150" r="7"/>
+                  <circle cx="192" cy="150" r="7"/>
+                  <circle cx="324" cy="150" r="7"/>
+                  <circle cx="448" cy="150" r="7"/>
+                  <circle cx="568" cy="150" r="7"/>
+                </g>
+                <g fill="#1a1a1a" font-family="sans-serif" font-size="14">
+                  <text x="46" y="210">Claim</text>
+                  <text x="176" y="210">Ads</text>
+                  <text x="292" y="210">Website</text>
+                  <text x="428" y="210">Record</text>
+                  <text x="546" y="210">Reading</text>
+                </g>
+              </svg>
+            </div>
+            <div class="compare-pane compare-before" aria-hidden="true">
+              <div class="compare-clip">
+                <svg viewBox="0 0 640 280" class="compare-art">
+                  <path d="M40 60 C120 200 80 40 200 160 S280 240 340 80 S460 40 520 180 S600 220 620 90" fill="none" stroke="#6e6e6e" stroke-width="3"/>
+                  <path d="M80 220 C160 40 240 240 300 100 S420 200 500 60" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+                  <g fill="#111" stroke="#bdbdbd" stroke-width="2">
+                    <rect x="36" y="48" width="54" height="40" transform="rotate(-8 63 68)"/>
+                    <rect x="150" y="170" width="54" height="40" transform="rotate(12 177 190)"/>
+                    <rect x="250" y="36" width="60" height="44" transform="rotate(6 280 58)"/>
+                    <rect x="360" y="150" width="54" height="40" transform="rotate(-14 387 170)"/>
+                    <rect x="490" y="70" width="54" height="40" transform="rotate(10 517 90)"/>
+                  </g>
+                  <g fill="#c8c8c8" font-family="sans-serif" font-size="13">
+                    <text x="40" y="130">Inbox</text>
+                    <text x="150" y="150">Ads</text>
+                    <text x="250" y="110">Page</text>
+                    <text x="360" y="130">Notes</text>
+                    <text x="490" y="150">Guess</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <input class="compare-range" type="range" min="0" max="100" value="54" aria-label="Show more of the tangled system or the connected system" />
+          </div>
+          <p class="compare-key span-12"><span>Before, disconnected</span><span>After, one line</span></p>
+        </div>
+      </section>
+
+      <section class="band reveal" id="services" aria-labelledby="services-title">
+        <div class="grid">
+          <div class="span-7">
+            <p class="eyebrow">The system</p>
+            <h2 id="services-title">Four services, one system.</h2>
+            <p class="measure">A new site that marketing cannot measure, or ads the page cannot catch, recreates the leak. The work is the connection.</p>
+          </div>
+        </div>
+        <div class="services">
+          <article class="service is-shown" id="web-design" tabindex="0">
+            <div class="service-copy">
+              <span class="num">01</span>
+              <h3>Web Design &amp; Development</h3>
+              <p>The public instrument. A website that finally says what the business has become.</p>
+            </div>
+            <figure class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/pillar-strategize-480.avif 480w, assets/pillar-strategize-720.avif 720w" sizes="(min-width: 900px) 36vw, 100vw" />
+                <img src="assets/pillar-strategize-720.webp" alt="" width="720" height="1120" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+          </article>
+          <article class="service" id="growth-marketing" tabindex="0">
+            <div class="service-copy">
+              <span class="num">02</span>
+              <h3>Growth Marketing</h3>
+              <p>The path from spend to the page. Paid attention is a leak until the path can hold it.</p>
+            </div>
+            <figure class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/pillar-grow-480.avif 480w, assets/pillar-grow-720.avif 720w" sizes="(min-width: 900px) 36vw, 100vw" />
+                <img src="assets/pillar-grow-720.webp" alt="" width="720" height="1016" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+          </article>
+          <article class="service" id="ai-automation" tabindex="0">
+            <div class="service-copy">
+              <span class="num">03</span>
+              <h3>AI &amp; Automation</h3>
+              <p>The handoff, with an owner. If the team is the integration, the system is not finished.</p>
+            </div>
+            <figure class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/pillar-workshop-480.avif 480w, assets/pillar-workshop-720.avif 720w" sizes="(min-width: 900px) 36vw, 100vw" />
+                <img src="assets/pillar-workshop-720.webp" alt="" width="720" height="1120" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+          </article>
+          <article class="service" id="conversion-analytics" tabindex="0">
+            <div class="service-copy">
+              <span class="num">04</span>
+              <h3>Conversion &amp; Analytics</h3>
+              <p>The reading. If you cannot read the handoff, you cannot tell which fix worked.</p>
+            </div>
+            <figure class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/system-800.avif 800w, assets/system-1280.avif 1280w" sizes="(min-width: 900px) 36vw, 100vw" />
+                <img src="assets/system-1280.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="band light reveal" id="process" aria-labelledby="process-title">
+        <div class="grid">
+          <div class="span-7">
+            <p class="eyebrow">The sequence</p>
+            <h2 id="process-title">Diagnose. Align. Rebuild.</h2>
+          </div>
+          <article class="step span-4">
+            <p class="num">01</p>
+            <h3>Diagnose</h3>
+            <p>Find the break with evidence: the offer, the page, the record, the spend, the event that is supposed to count.</p>
+          </article>
+          <article class="step span-4">
+            <p class="num">02</p>
+            <h3>Align</h3>
+            <p>The people who touch the path agree on the owner and the next step before a new tool arrives.</p>
+          </article>
+          <article class="step span-4">
+            <p class="num">03</p>
+            <h3>Rebuild</h3>
+            <p>The site, the campaign, the handoff, and the reading are connected on purpose.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band reveal" id="plans" aria-labelledby="plans-title">
+        <div class="grid">
+          <div class="span-7">
+            <p class="eyebrow">The agreement</p>
+            <h2 id="plans-title">Three plans.</h2>
+            <p class="measure">Starting ranges. The agreement sets the fee. The number is not the mystery. The scope is.</p>
+          </div>
+          <article class="plan span-4" id="foundation">
+            <h3>Foundation</h3>
+            <p class="price">$12k–$20k</p>
+            <p>A website that finally says what the business has become.</p>
+            <ol>
+              <li>Message and site architecture</li>
+              <li>Design and build of the marketing site</li>
+              <li>One clear next step on the page</li>
+              <li>Basic conversion events</li>
+              <li>Accessibility and performance pass</li>
+            </ol>
+            <p><strong>Timeline.</strong> Often 6–10 weeks once scope is agreed. Planning range, not a promise.</p>
+            <p><strong>Best for.</strong> The offer is real and the site is behind the business. You need the public instrument corrected before you add channels.</p>
+          </article>
+          <article class="plan span-4" id="growth">
+            <h3>Growth System</h3>
+            <p class="price">$25k–$45k</p>
+            <p>Not just a better site. A connected acquisition system.</p>
+            <ol>
+              <li>The foundation site, plus the path from attention to a record</li>
+              <li>Offer alignment between ads and the page</li>
+              <li>A handoff with an owner, into a CRM or a shared inbox</li>
+              <li>Measurement the team can read on a set rhythm</li>
+              <li>A short operating note for the people who run it</li>
+            </ol>
+            <p><strong>Timeline.</strong> Often 10–16 weeks once scope is agreed. Planning range, not a promise.</p>
+            <p><strong>Best for.</strong> Demand exists, and it leaks between the ad, the site, and the follow-up.</p>
+          </article>
+          <article class="plan span-4" id="flagship">
+            <h3>Interactive Flagship</h3>
+            <p class="price">$45k–$85k+</p>
+            <p>Build the site people remember, and the system your team can actually run.</p>
+            <ol>
+              <li>Interaction that explains the business, not a decorative effect</li>
+              <li>The acquisition path and the measurement from Growth System</li>
+              <li>A design and content system the team can extend</li>
+              <li>Handoffs written down and built</li>
+              <li>A lab surface for experiments after launch</li>
+            </ol>
+            <p><strong>Timeline.</strong> Often 16–24 weeks once scope is agreed. Planning range, not a promise.</p>
+            <p><strong>Best for.</strong> You need a public presence people remember and an internal system the team can run without the founder in the middle.</p>
+          </article>
+          <aside class="retainer span-12">
+            <h3>Growth &amp; Optimization</h3>
+            <p class="price">$3k–$8k/month</p>
+            <p>Keep the system in register after the build: experiments, measurement, and fixes as the offer changes. Optional. Not a substitute for the build. Teams that have a working path and need it tended. Monthly, after a build or a defined review.</p>
+          </aside>
+          <p class="muted span-8">Ranges are starting points. Scope, timing, and fee are set in the agreement before work begins. Larger operating-system builds stay with Support Wellness Global and are scoped separately.</p>
+        </div>
+      </section>
+
+      <section class="band reveal" id="start" aria-labelledby="start-title">
+        <div class="grid">
+          <div class="span-7">
+            <p class="eyebrow">The diagnostic</p>
+            <h2 id="start-title">Start from the symptom.</h2>
+            <p class="measure">Name the symptom. The diagnostic recommends a scope, not a slogan. This preview does not send a form.</p>
+          </div>
+          <fieldset class="checks span-7">
+            <legend class="sr">Symptoms</legend>
+            <label class="check"><input type="checkbox" name="symptoms" value="traffic-no-leads" data-plan="growth" data-services="web-design conversion-analytics" data-reason="Attention is landing on a page or a form that does not convert it into a request with an owner. Fix the page and measure the drop before you buy more traffic." /><span><strong>Traffic but no leads</strong> People arrive. The next step does not hold them.</span></label>
+            <label class="check"><input type="checkbox" name="symptoms" value="site-dated" data-plan="foundation" data-services="web-design" data-reason="The site is behind the business. Start by rebuilding the public instrument so the offer is sayable and the next step is obvious." /><span><strong>Site looks dated</strong> The public site no longer matches the company.</span></label>
+            <label class="check"><input type="checkbox" name="symptoms" value="unclear-offer" data-plan="foundation" data-services="web-design growth-marketing" data-reason="If the offer is unclear, ads and pages will invent one. Clarify the claim before you scale spend." /><span><strong>Nobody knows what we do</strong> A buyer cannot repeat the offer after the page.</span></label>
+            <label class="check"><input type="checkbox" name="symptoms" value="paid-leaking" data-plan="growth" data-services="growth-marketing conversion-analytics" data-reason="The click and the page disagree, or spend changes without a reading. Connect the ad, the landing path, and the measurement." /><span><strong>Paid media is leaking money</strong> Spend buys attention the path does not keep.</span></label>
+            <label class="check"><input type="checkbox" name="symptoms" value="cannot-measure" data-plan="growth" data-services="conversion-analytics" data-reason="Without a conversion reading, later work is a guess. Put the definition and the events in place before raising the budget." /><span><strong>We cannot measure conversions</strong> There is no shared definition of a lead.</span></label>
+            <label class="check"><input type="checkbox" name="symptoms" value="inbox-handoff" data-plan="growth" data-services="ai-automation conversion-analytics" data-reason="Requests land in a personal inbox and wait. Give each one a record, an owner, and a next step the team can see." /><span><strong>Handoffs live in an inbox</strong> The founder is still the integration.</span></label>
+            <label class="check"><input type="checkbox" name="symptoms" value="team-can-run" data-plan="flagship" data-services="web-design ai-automation conversion-analytics" data-retainer="true" data-reason="You need the public site and the operating path together, built so the team can run them. That is flagship scope, not a page refresh." /><span><strong>We need one system the team can run</strong> The work has to live past the launch and past the founder.</span></label>
+          </fieldset>
+          <div class="span-5 rec-col">
+            <div class="recommendation" data-recommendation aria-live="polite">
+              <p>Select at least one symptom. The recommendation stays empty until you do.</p>
+            </div>
+            <noscript><p>Scripting is off, so this page cannot combine symptoms into a scope. The three plans above are the starting ranges.</p></noscript>
+            <div class="actions">
+              <a class="button" data-mail href="mailto:info@supportwellnessglobal.com?subject=SWG%20diagnostic">Email this scope</a>
+              <button class="button button-quiet" type="button" data-dialog="schedule-dialog">Book a working session</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band light reveal" id="studio" aria-labelledby="studio-title">
+        <div class="grid">
+          <h2 class="span-5" id="studio-title">The studio.</h2>
+          <div class="span-6 start-7">
+            <p>swg.studio is a separate site for the web design and digital marketing work of Support Wellness Global. It is a working digital systems lab.</p>
+            <p>Healthier businesses. Clear offers, owned handoffs, and measurements a team can use. Not spa branding, and not a yoga practice.</p>
+            <p>Will Wiedenmann directs SWG Studio. The parent firm is <a href="https://supportwellnessglobal.com">Support Wellness Global</a>. Company-wide operating systems, and work that needs a different scope than the three studio plans, stay with the parent firm.</p>
+            <p>This page does not invent a client list, a headcount, or a set of results. Proof will be published when a client has approved it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band cta reveal" aria-labelledby="cta-title">
+        <div class="grid">
+          <h2 class="span-10" id="cta-title">
+            <span class="line">Strategize it.</span>
+            <span class="line">Workshop it.</span>
+            <span class="line">Grow it.</span>
+          </h2>
+          <p class="span-6 positioning">Can you fix it? With SWG, you can.</p>
+          <p class="span-6 measure">Name the symptom. The diagnostic recommends a scope, not a slogan.</p>
+          <div class="actions span-12">
+            <a class="button" href="#start">Start the diagnostic</a>
+            <button class="button button-quiet" type="button" data-dialog="schedule-dialog">Book a working session</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="grid">
+        <div class="span-5">
+          <p class="brand-name">SWG Studio</p>
+          <p>A working digital systems lab of <a href="https://supportwellnessglobal.com">Support Wellness Global</a>.</p>
+          <p>Wellness means healthier businesses. Not a spa, and not a yoga brand.</p>
+          <p>Directed by Will Wiedenmann.</p>
+          <p><a href="mailto:info@supportwellnessglobal.com">info@supportwellnessglobal.com</a></p>
+          <p>© 2026 Support Wellness Global</p>
+        </div>
+        <div class="span-3">
+          <h2>Services</h2>
+          <ul>
+            <li><a href="#web-design">Web Design &amp; Development</a></li>
+            <li><a href="#growth-marketing">Growth Marketing</a></li>
+            <li><a href="#ai-automation">AI &amp; Automation</a></li>
+            <li><a href="#conversion-analytics">Conversion &amp; Analytics</a></li>
+          </ul>
+        </div>
+        <div class="span-3">
+          <h2>Studio</h2>
+          <ul>
+            <li><a href="#map">System map</a></li>
+            <li><a href="#case">Example template</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#start">Start a project</a></li>
+            <li><a href="../v4/">Earlier study, v4</a></li>
+            <li><a href="../v3/">Earlier study, v3</a></li>
+            <li><a href="../v2/">Earlier study, v2</a></li>
+            <li><a href="../v1/">Earlier study, v1</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <dialog id="schedule-dialog" aria-labelledby="schedule-title">
+      <h2 id="schedule-title">The calendar is not connected</h2>
+      <p>Booking a working session does not write to a calendar. Use the diagnostic and the studio will reply once a mailbox is connected.</p>
+      <div class="actions">
+        <a class="button" href="#start">Go to the diagnostic</a>
+        <form method="dialog"><button class="button button-quiet" type="submit">Close</button></form>
+      </div>
+    </dialog>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
