@@ -186,7 +186,6 @@
     clear(rec);
     if (!boxes.length) {
       rec.dataset.empty = "true";
-      rec.classList.remove("is-result");
       rec.appendChild(
         text(
           "p",
@@ -198,7 +197,6 @@
       return;
     }
     rec.dataset.empty = "false";
-    rec.classList.add("is-result");
     var planId = "foundation";
     var serviceSet = {};
     var retainer = boxes.length >= 3;
@@ -322,148 +320,12 @@
 
   var range = document.querySelector(".compare-range");
   var beforePane = document.querySelector(".compare-before");
-  var compare = document.querySelector(".compare");
   if (range && beforePane) {
-    var vel = 0;
-    var lastVal = Number(range.value);
-    var lastTime = 0;
-    var coast = 0;
     var paintCompare = function () {
-      var value = Number(range.value);
-      beforePane.style.width = value + "%";
-      if (compare) compare.style.setProperty("--split", String(value));
+      beforePane.style.width = range.value + "%";
     };
-    range.addEventListener("pointerdown", function () {
-      if (coast) cancelAnimationFrame(coast);
-      coast = 0;
-      vel = 0;
-      lastVal = Number(range.value);
-      lastTime = performance.now();
-    });
-    range.addEventListener("input", function () {
-      var now = performance.now();
-      var value = Number(range.value);
-      var dt = Math.max(16, now - lastTime);
-      vel = (value - lastVal) / dt;
-      lastVal = value;
-      lastTime = now;
-      paintCompare();
-    });
-    range.addEventListener("pointerup", function () {
-      if (motion !== "playing") return;
-      var step = function () {
-        if (Math.abs(vel) < 0.015) return;
-        var next = Math.min(100, Math.max(0, Number(range.value) + vel * 18));
-        vel *= 0.86;
-        range.value = String(Math.round(next));
-        paintCompare();
-        coast = requestAnimationFrame(step);
-      };
-      coast = requestAnimationFrame(step);
-    });
+    range.addEventListener("input", paintCompare);
     paintCompare();
-  }
-
-  var fix = document.getElementById("fix-chain");
-  var chain = document.querySelector(".chain");
-  if (fix && chain) {
-    fix.addEventListener("click", function () {
-      var on = chain.classList.toggle("is-fixed");
-      fix.setAttribute("aria-pressed", on ? "true" : "false");
-      fix.textContent = on ? "Break repaired" : "Fix the break";
-    });
-  }
-
-  var hero = document.querySelector(".hero");
-  var heroMedia = document.querySelector(".hero-media");
-  if (hero && heroMedia && motion === "playing" && fine.matches) {
-    var px = 0;
-    var py = 0;
-    var tx = 0;
-    var ty = 0;
-    var tilting = false;
-    var tick = function () {
-      px += (tx - px) * 0.12;
-      py += (ty - py) * 0.12;
-      heroMedia.style.transform = "translate3d(" + px.toFixed(2) + "px," + py.toFixed(2) + "px,0)";
-      if (Math.abs(tx - px) > 0.15 || Math.abs(ty - py) > 0.15) requestAnimationFrame(tick);
-      else tilting = false;
-    };
-    hero.addEventListener(
-      "pointermove",
-      function (e) {
-        var rect = hero.getBoundingClientRect();
-        tx = ((e.clientX - rect.left) / rect.width - 0.5) * 14;
-        ty = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
-        if (!tilting) {
-          tilting = true;
-          requestAnimationFrame(tick);
-        }
-      },
-      { passive: true }
-    );
-    hero.addEventListener("pointerleave", function () {
-      tx = 0;
-      ty = 0;
-      if (!tilting) {
-        tilting = true;
-        requestAnimationFrame(tick);
-      }
-    });
-  }
-
-  var checks = Array.prototype.slice.call(document.querySelectorAll(".check"));
-  var stepper = document.querySelector(".stepper");
-  if (checks.length && stepper && root.classList.contains("js")) {
-    var step = 0;
-    var count = stepper.querySelector("[data-step-count]");
-    var show = function () {
-      checks.forEach(function (item, index) {
-        item.classList.toggle("is-current", index === step);
-      });
-      if (count) count.textContent = "Break " + (step + 1) + " of " + checks.length;
-    };
-    stepper.hidden = false;
-    stepper.parentElement.classList.add("is-stepped");
-    show();
-    stepper.querySelector("[data-step-yes]").addEventListener("click", function () {
-      var input = checks[step].querySelector("input");
-      input.checked = true;
-      input.dispatchEvent(new Event("change", { bubbles: true }));
-      if (step < checks.length - 1) step += 1;
-      show();
-    });
-    stepper.querySelector("[data-step-no]").addEventListener("click", function () {
-      var input = checks[step].querySelector("input");
-      input.checked = false;
-      input.dispatchEvent(new Event("change", { bubbles: true }));
-      if (step < checks.length - 1) step += 1;
-      show();
-    });
-    stepper.querySelector("[data-step-prev]").addEventListener("click", function () {
-      if (step > 0) step -= 1;
-      show();
-    });
-    stepper.querySelector("[data-step-all]").addEventListener("click", function () {
-      stepper.parentElement.classList.remove("is-stepped");
-      stepper.hidden = true;
-    });
-  }
-
-  if (!window.CSS || !CSS.supports || !CSS.supports("animation-timeline: view()")) {
-    if ("IntersectionObserver" in window) {
-      var revealObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) entry.target.classList.add("is-in");
-          });
-        },
-        { threshold: 0.2 }
-      );
-      document.querySelectorAll(".reveal").forEach(function (el) {
-        revealObserver.observe(el);
-      });
-    }
   }
 
   var layers = {};
@@ -518,42 +380,6 @@
     var playAttempt = video.play();
     if (playAttempt && playAttempt.catch) playAttempt.catch(function () {});
   }
-  var serviceShots = document.querySelectorAll(".svc-frame img");
-  function markReady(img) {
-    img.classList.add("is-ready");
-  }
-  if (serviceShots.length) {
-    var revealShot = function (img) {
-      if (img.decode) {
-        img.decode().then(function () { markReady(img); }).catch(function () { markReady(img); });
-      } else {
-        markReady(img);
-      }
-    };
-    if ("IntersectionObserver" in window) {
-      var shotObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            revealShot(entry.target);
-            shotObserver.unobserve(entry.target);
-          });
-        },
-        { rootMargin: "45% 0px", threshold: 0.01 }
-      );
-      serviceShots.forEach(function (img) {
-        img.addEventListener("error", function () { markReady(img); }, { once: true });
-        if (img.complete && img.naturalWidth > 0) revealShot(img);
-        else shotObserver.observe(img);
-      });
-    } else {
-      serviceShots.forEach(revealShot);
-    }
-    window.addEventListener("load", function () {
-      serviceShots.forEach(markReady);
-    });
-  }
-
   if ("requestIdleCallback" in window) requestIdleCallback(bootVideo, { timeout: 1500 });
   else window.addEventListener("load", bootVideo);
 
