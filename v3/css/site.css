@@ -110,6 +110,29 @@ h1 {
   max-width: 14ch;
 }
 
+.hero h1 {
+  max-width: none;
+  font-size: clamp(1.7rem, 5.4vw, 4.15rem);
+  line-height: 1.05;
+}
+
+.hero h1 .line { display: block; white-space: nowrap; }
+
+.swg { color: inherit; }
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .swg {
+    background-image: linear-gradient(185deg, #fff 0%, #f4f4f4 28%, #a3a3a3 47%, #fff 62%, #e2e2e2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+#cta-title { max-width: none; }
+
+#cta-title .line { display: block; white-space: nowrap; }
+
 .positioning {
   font-family: var(--display);
   font-weight: 500;
